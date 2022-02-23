@@ -3,12 +3,12 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Cli {
-    public static void takeName () {
-        final var NAME_QUESTION = "May I have your name? ";
+    public static void takeName() {
+        var nameQuestion = "May I have your name? ";
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print(NAME_QUESTION);
+        System.out.print(nameQuestion);
         String name = scanner.next();
         System.out.println("Hello, " + name);
     }

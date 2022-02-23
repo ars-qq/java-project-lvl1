@@ -6,3 +6,10 @@ run-dist: #запуск исполняемого файла
 
 check-updates: #проверка обновлений зависимостей и плагинов
 	./gradlew dependencyUpdates
+
+lint: #запуск линтера
+	./gradlew checkstyleMain
+
+.PHONY: build
+build: #очистка + сборка
+	./gradlew clean build
