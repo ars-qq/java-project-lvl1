@@ -11,5 +11,5 @@ public interface Game {
 
     void generateQuestion();
 
-    String calcCorrectAnswer(String question);
+    String calcCorrectAnswer();
 }

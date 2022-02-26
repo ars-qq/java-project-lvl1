@@ -37,7 +37,7 @@ public class Calc implements Game {
         final var MAX_RANGE_BASIC = 100;
         final var MAX_RANGE_MULTIPLICATION = 9;
 
-        var operation = OPERATIONS[Util.getRandomNumber(0, OPERATIONS.length - 1)];
+        var operation = OPERATIONS[Util.getRandomNumber(0, OPERATIONS.length)];
         var firstOperand = Util.getRandomNumber(MIN_RANGE, MAX_RANGE_BASIC);
 
         var maxRange = operation.equals("*") && firstOperand >= 10 ? MAX_RANGE_MULTIPLICATION : MAX_RANGE_BASIC;
@@ -46,11 +46,12 @@ public class Calc implements Game {
         var question = firstOperand + " " + operation + " " + secondOperand;
         this.setCurrentQuestion(question);
 
-        var correctAnswer = this.calcCorrectAnswer(question);
+        var correctAnswer = this.calcCorrectAnswer();
         this.setCurrentCorrectAnswer(correctAnswer);
     }
 
-    public String calcCorrectAnswer(String question) {
+    public String calcCorrectAnswer() {
+        var question = this.getCurrentQuestion();
         var firstSpaceIndex = question.indexOf(' ');
 
         var firstOperand = Integer.parseInt(question.substring(0, firstSpaceIndex), 10);

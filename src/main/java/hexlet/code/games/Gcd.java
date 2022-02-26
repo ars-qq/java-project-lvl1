@@ -3,11 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Game;
 import hexlet.code.Util;
 
-public class Even implements Game {
-    private static final String TRUE_ANSWER = "yes";
-    private static final String FALSE_ANSWER = "no";
-
-
+public class Gcd implements Game {
     private String currentQuestion;
     private String currentCorrectAnswer;
 
@@ -30,14 +26,17 @@ public class Even implements Game {
 
 
     public void showRules() {
-        System.out.println("Answer \'yes\' if number even otherwise answer \'no\'.");
+        System.out.println("Find the greatest common divisor of given numbers.");
     }
 
     public void generateQuestion() {
-        final var MIN_RANGE = 1;
+        final var MIN_RANGE = 0;
         final var MAX_RANGE = 100;
 
-        var question = Integer.toString(Util.getRandomNumber(MIN_RANGE, MAX_RANGE));
+        var firstOperand = Util.getRandomNumber(MIN_RANGE, MAX_RANGE);
+        var secondOperand = Util.getRandomNumber(MIN_RANGE, MAX_RANGE);
+
+        var question = firstOperand + " " + secondOperand;
         this.setCurrentQuestion(question);
 
         var correctAnswer = this.calcCorrectAnswer();
@@ -45,9 +44,13 @@ public class Even implements Game {
     }
 
     public String calcCorrectAnswer() {
-        var number = Integer.parseInt(this.getCurrentQuestion(), 10);
+        var question = this.getCurrentQuestion();
+        var firstSpaceIndex = question.indexOf(' ');
 
-        return Util.isEven(number) ? TRUE_ANSWER : FALSE_ANSWER;
+        var firstOperand = Integer.parseInt(question.substring(0, firstSpaceIndex), 10);
+        var secondOperand = Integer.parseInt(question.substring(firstSpaceIndex + 1), 10);
+
+        var gcd = Util.calcGcd(new int[]{firstOperand, secondOperand});
+        return Integer.toString(gcd);
     }
 }
-
