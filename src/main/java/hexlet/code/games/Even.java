@@ -1,4 +1,7 @@
-package hexlet.code;
+package hexlet.code.games;
+
+import hexlet.code.Game;
+import hexlet.code.Util;
 
 public class Even implements Game {
     private static final String TRUE_ANSWER = "yes";

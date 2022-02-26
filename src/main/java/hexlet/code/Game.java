@@ -1,6 +1,6 @@
 package hexlet.code;
 
-interface Game {
+public interface Game {
     void showRules();
 
     String getCurrentQuestion();

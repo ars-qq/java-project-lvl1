@@ -1,4 +1,7 @@
-package hexlet.code;
+package hexlet.code.games;
+
+import hexlet.code.Game;
+import hexlet.code.Util;
 
 public class Calc implements Game {
     private static final String[] OPERATIONS = {"+", "-", "*"};
