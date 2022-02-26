@@ -39,17 +39,11 @@ public class Gcd implements Game {
         var question = firstOperand + " " + secondOperand;
         this.setCurrentQuestion(question);
 
-        var correctAnswer = this.calcCorrectAnswer();
+        var correctAnswer = this.calcCorrectAnswer(firstOperand, secondOperand);
         this.setCurrentCorrectAnswer(correctAnswer);
     }
 
-    public String calcCorrectAnswer() {
-        var question = this.getCurrentQuestion();
-        var firstSpaceIndex = question.indexOf(' ');
-
-        var firstOperand = Integer.parseInt(question.substring(0, firstSpaceIndex), 10);
-        var secondOperand = Integer.parseInt(question.substring(firstSpaceIndex + 1), 10);
-
+    public String calcCorrectAnswer(int firstOperand, int secondOperand) {
         var gcd = Util.calcGcd(new int[]{firstOperand, secondOperand});
         return Integer.toString(gcd);
     }
