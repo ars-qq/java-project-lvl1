@@ -12,6 +12,4 @@ interface Game {
     void generateQuestion();
 
     String calcCorrectAnswer(String question);
-
-    boolean isAnswerCorrect(String answer);
 }

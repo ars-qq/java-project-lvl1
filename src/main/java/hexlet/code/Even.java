@@ -1,7 +1,5 @@
 package hexlet.code;
 
-import java.util.Scanner;
-
 public class Even implements Game {
     private static final String TRUE_ANSWER = "yes";
     private static final String FALSE_ANSWER = "no";
@@ -47,10 +45,6 @@ public class Even implements Game {
         var number = Integer.parseInt(question, 10);
 
         return Util.isEven(number) ? TRUE_ANSWER : FALSE_ANSWER;
-    }
-
-    public boolean isAnswerCorrect(String answer) {
-        return answer.equals(this.getCurrentCorrectAnswer());
     }
 }
 

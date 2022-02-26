@@ -6,7 +6,7 @@ public class App {
     public static void main(String[] args) {
         System.out.println("Please enter the game number and press Enter.");
 
-        String[] games = {"Exit", "Greet", "Even"};
+        String[] games = {"Exit", "Greet", "Even", "Calc"};
 
         for (var i = 0; i < games.length; i++) {
             var isLastIndex = i == games.length - 1;
@@ -33,6 +33,10 @@ public class App {
             case 2:
                 var evenGame = new Engine(new Even());
                 evenGame.start();
+                break;
+            case 3:
+                var calcGame = new Engine(new Calc());
+                calcGame.start();
                 break;
         }
     }

@@ -73,12 +73,16 @@ public class Engine {
     }
 
     public void onAnswer(String answer) {
-        if (this.game.isAnswerCorrect(answer)) {
+        if (this.isAnswerCorrect(answer)) {
             this.onCorrectAnswer();
         }
         else {
             this.onWrongAnswer(answer);
         }
+    }
+
+    public boolean isAnswerCorrect(String answer) {
+        return answer.equals(this.game.getCurrentCorrectAnswer());
     }
 
     public void onCorrectAnswer() {
