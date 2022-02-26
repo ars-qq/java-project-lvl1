@@ -10,6 +10,10 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
+        start();
+    }
+
+    public static void start() {
         System.out.println("Please enter the game number and press Enter.");
 
         String[] games = {"Exit", "Greet", "Even", "Calc", "GCD", "Progression", "Prime"};
@@ -27,11 +31,25 @@ public class App {
         System.out.print("Your choice: ");
 
         var gameChooser = new Scanner(System.in);
+
+        if (!gameChooser.hasNextInt()) {
+            System.out.println("\nIt's not a correct number!");
+            start();
+            return;
+        }
+
         int gameNumber = gameChooser.nextInt();
+
+        if (gameNumber > games.length - 1) {
+            System.out.println("\nWrong game number!");
+            start();
+            return;
+        }
 
         switch (gameNumber) {
             case 0:
-                break;
+                System.out.println("See you again!");
+                return;
             case 1:
                 var cli = new Cli();
                 cli.start();
