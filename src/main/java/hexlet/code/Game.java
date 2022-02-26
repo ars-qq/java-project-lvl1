@@ -10,6 +10,4 @@ public interface Game {
     void setCurrentCorrectAnswer(String correctAnswer);
 
     void generateQuestion();
-
-    String calcCorrectAnswer();
 }
