@@ -28,11 +28,11 @@ public class App {
                 break;
             case 1:
                 var cli = new Cli();
-                cli.scanName();
+                cli.start();
                 break;
             case 2:
-                var evenGame = new Even(new Cli());
-                evenGame.startGame();
+                var evenGame = new Engine(new Even());
+                evenGame.start();
                 break;
         }
     }

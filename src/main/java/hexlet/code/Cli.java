@@ -5,26 +5,33 @@ import java.util.Scanner;
 public class Cli {
     private String name;
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getName() {
         return name;
     }
 
-    public void scanName() {
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
+    public void start() {
         System.out.println("\nWelcome to the Brain Games!");
 
-        var nameQuestion = "May I have your name? ";
-
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print(nameQuestion);
-
-        String name = scanner.nextLine();
+        var name = this.inputName();
         this.setName(name);
-        System.out.println("Hello, " + name);
+        this.outputWelcome();
+    }
+
+    public String inputName() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("May I have your name? ");
+
+        return scanner.nextLine();
+    }
+
+    public void outputWelcome() {
+        System.out.println("Hello, " + this.getName());
     }
 }
 
