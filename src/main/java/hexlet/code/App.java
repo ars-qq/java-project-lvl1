@@ -4,6 +4,7 @@ import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.Gcd;
 import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 
 import java.util.Scanner;
 
@@ -11,7 +12,7 @@ public class App {
     public static void main(String[] args) {
         System.out.println("Please enter the game number and press Enter.");
 
-        String[] games = {"Exit", "Greet", "Even", "Calc", "GCD", "Progression"};
+        String[] games = {"Exit", "Greet", "Even", "Calc", "GCD", "Progression", "Prime"};
 
         for (var i = 0; i < games.length; i++) {
             var isLastIndex = i == games.length - 1;
@@ -50,6 +51,10 @@ public class App {
             case 5:
                 var progressionGame = new Engine(new Progression());
                 progressionGame.start();
+                break;
+            case 6:
+                var primeGame = new Engine(new Prime());
+                primeGame.start();
                 break;
         }
     }

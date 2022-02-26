@@ -1,7 +1,5 @@
 package hexlet.code;
 
-import java.io.NotActiveException;
-
 public class Util {
     public static int getRandomNumber(int min, int max) {
         return (int) ((Math.random() * (max - min)) + min);
@@ -9,6 +7,22 @@ public class Util {
 
     public static boolean isEven(int number) {
         return number % 2 == 0;
+    }
+
+    public static boolean isPrime(int number) {
+        if (number == 0 || number == 1) {
+            return false;
+        }
+
+        var maxPossibleDelimiter = (int) Math.floor(number / 2);
+
+        for (var i = 2; i < maxPossibleDelimiter; i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     public static int calcGcd(int[] numbers) {
