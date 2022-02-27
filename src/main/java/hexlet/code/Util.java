@@ -16,7 +16,7 @@ public class Util {
 
         var maxPossibleDelimiter = (int) Math.floor(number / 2);
 
-        for (var i = 2; i < maxPossibleDelimiter; i++) {
+        for (var i = 2; i <= maxPossibleDelimiter; i++) {
             if (number % i == 0) {
                 return false;
             }
