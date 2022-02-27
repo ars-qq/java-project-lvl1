@@ -31,7 +31,7 @@ public final class Cli {
     }
 
     public void outputWelcome() {
-        System.out.println("Hello, " + this.getName());
+        System.out.println("Hello, " + this.getName() + "!");
     }
 }
 
