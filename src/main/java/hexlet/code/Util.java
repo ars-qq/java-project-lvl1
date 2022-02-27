@@ -60,7 +60,7 @@ public class Util {
         return min;
     }
 
-    public static int[] toAbsNumbers (int[] numbers) {
+    public static int[] toAbsNumbers(int[] numbers) {
         var absNumbers = new int[numbers.length];
         var index = 0;
 

@@ -46,34 +46,43 @@ public class App {
             return;
         }
 
+        final var exitNumber = 0;
+        final var greetNumber = 1;
+        final var evenNumber = 2;
+        final var calcNumber = 3;
+        final var gcdNumber = 4;
+        final var primeNumber = 5;
+        final var progressionNumber = 6;
+
         switch (gameNumber) {
-            case 0:
+            case exitNumber:
                 System.out.println("See you again!");
                 return;
-            case 1:
+            case greetNumber:
                 var cli = new Cli();
                 cli.start();
                 break;
-            case 2:
+            case evenNumber:
                 var evenGame = new Engine(new Even());
                 evenGame.start();
                 break;
-            case 3:
+            case calcNumber:
                 var calcGame = new Engine(new Calc());
                 calcGame.start();
                 break;
-            case 4:
+            case gcdNumber:
                 var gcdGame = new Engine(new Gcd());
                 gcdGame.start();
                 break;
-            case 5:
+            case primeNumber:
                 var progressionGame = new Engine(new Progression());
                 progressionGame.start();
                 break;
-            case 6:
+            case progressionNumber:
                 var primeGame = new Engine(new Prime());
                 primeGame.start();
                 break;
+            default:
         }
     }
 }

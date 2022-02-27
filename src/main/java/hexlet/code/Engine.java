@@ -2,7 +2,7 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-public class Engine {
+public final class Engine {
     private static final int ANSWERS_TO_WIN_COUNT = 3;
 
 
@@ -11,8 +11,8 @@ public class Engine {
     private String name;
 
 
-    public Engine(Game game) {
-        this.setGame(game);
+    public Engine(Game newGame) {
+        this.setGame(newGame);
     }
 
 
@@ -20,24 +20,24 @@ public class Engine {
         return correctAnswersCount;
     }
 
-    public void setCorrectAnswersCount(int correctAnswersCount) {
-        this.correctAnswersCount = correctAnswersCount;
+    public void setCorrectAnswersCount(int newCorrectAnswersCount) {
+        this.correctAnswersCount = newCorrectAnswersCount;
     }
 
     public Game getGame() {
         return game;
     }
 
-    public void setGame(Game game) {
-        this.game = game;
+    public void setGame(Game newGame) {
+        this.game = newGame;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String newName) {
+        this.name = newName;
     }
 
 
@@ -51,9 +51,7 @@ public class Engine {
     }
 
     public void askQuestion() {
-        var game = this.getGame();
-
-        game.generateQuestion();
+        this.getGame().generateQuestion();
         this.outputQuestion();
 
         var answer = this.inputAnswer();
@@ -75,8 +73,7 @@ public class Engine {
     public void onAnswer(String answer) {
         if (this.isAnswerCorrect(answer)) {
             this.onCorrectAnswer();
-        }
-        else {
+        } else {
             this.onWrongAnswer(answer);
         }
     }
@@ -110,7 +107,11 @@ public class Engine {
     }
 
     public void onLose(String answer) {
-        System.out.println("\'" + answer + "\' is wrong answer ;(. Correct answer was \'" + this.game.getCurrentCorrectAnswer() + "\'");
+        System.out.println("\'"
+                + answer
+                + "\' is wrong answer ;(. Correct answer was \'"
+                + this.game.getCurrentCorrectAnswer()
+                + "\'");
         System.out.println("Let's try again, " + this.getName() + "!");
     }
 }

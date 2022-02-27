@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Game;
 import hexlet.code.Util;
 
-public class Progression implements Game {
+public final class Progression implements Game {
     private static final int PROGRESSION_SIZE = 10;
     private static final String MISSED_NUMBER_SIGN = "..";
 
@@ -33,14 +33,14 @@ public class Progression implements Game {
     }
 
     public void generateQuestion() {
-        final var FIRST_NUMBER_MIN_RANGE = 0;
-        final var FIRST_NUMBER_MAX_RANGE = 100;
+        final var firstNumberMinRange = 0;
+        final var firstNumberMaxRange = 100;
 
-        final var STEP_MIN_RANGE = 2;
-        final var STEP_MAX_RANGE = 10;
+        final var stepMinRange = 2;
+        final var stepMaxRange = 10;
 
-        var firstNumber = Util.getRandomNumber(FIRST_NUMBER_MIN_RANGE, FIRST_NUMBER_MAX_RANGE);
-        var progressionStep = Util.getRandomNumber(STEP_MIN_RANGE, STEP_MAX_RANGE);
+        var firstNumber = Util.getRandomNumber(firstNumberMinRange, firstNumberMaxRange);
+        var progressionStep = Util.getRandomNumber(stepMinRange, stepMaxRange);
 
         var progressionNumbers = new String[PROGRESSION_SIZE];
 

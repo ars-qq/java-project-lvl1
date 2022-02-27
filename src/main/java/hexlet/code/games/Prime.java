@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Game;
 import hexlet.code.Util;
 
-public class Prime implements Game {
+public final class Prime implements Game {
     private static final String TRUE_ANSWER = "yes";
     private static final String FALSE_ANSWER = "no";
 
@@ -34,10 +34,10 @@ public class Prime implements Game {
     }
 
     public void generateQuestion() {
-        final var MIN_RANGE = 1;
-        final var MAX_RANGE = 100;
+        final var minRange = 1;
+        final var maxRange = 100;
 
-        var question = Integer.toString(Util.getRandomNumber(MIN_RANGE, MAX_RANGE));
+        var question = Integer.toString(Util.getRandomNumber(minRange, maxRange));
         this.setCurrentQuestion(question);
 
         var correctAnswer = this.calcCorrectAnswer();
@@ -45,7 +45,8 @@ public class Prime implements Game {
     }
 
     public String calcCorrectAnswer() {
-        var number = Integer.parseInt(this.getCurrentQuestion(), 10);
+        final var radix = 10;
+        var number = Integer.parseInt(this.getCurrentQuestion(), radix);
 
         return Util.isPrime(number) ? TRUE_ANSWER : FALSE_ANSWER;
     }

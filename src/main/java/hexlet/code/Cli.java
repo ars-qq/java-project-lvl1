@@ -2,7 +2,7 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-public class Cli {
+public final class Cli {
     private String name;
 
 
@@ -10,16 +10,16 @@ public class Cli {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String newName) {
+        this.name = newName;
     }
 
 
     public void start() {
         System.out.println("\nWelcome to the Brain Games!");
 
-        var name = this.inputName();
-        this.setName(name);
+        var inputtedName = this.inputName();
+        this.setName(inputtedName);
         this.outputWelcome();
     }
 

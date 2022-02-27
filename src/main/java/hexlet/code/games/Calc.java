@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Game;
 import hexlet.code.Util;
 
-public class Calc implements Game {
+public final class Calc implements Game {
     private static final String[] OPERATIONS = {"+", "-", "*"};
 
 
@@ -33,15 +33,18 @@ public class Calc implements Game {
     }
 
     public void generateQuestion() {
-        final var MIN_RANGE = 0;
-        final var MAX_RANGE_BASIC = 100;
-        final var MAX_RANGE_MULTIPLICATION = 9;
+        final var minRange = 0;
+        final var maxRangeBasic = 100;
+        final var maxRangeMultiplication = 9;
 
         var operation = OPERATIONS[Util.getRandomNumber(0, OPERATIONS.length)];
-        var firstOperand = Util.getRandomNumber(MIN_RANGE, MAX_RANGE_BASIC);
+        var firstOperand = Util.getRandomNumber(minRange, maxRangeBasic);
 
-        var maxRange = operation.equals("*") && firstOperand >= 10 ? MAX_RANGE_MULTIPLICATION : MAX_RANGE_BASIC;
-        var secondOperand = Util.getRandomNumber(MIN_RANGE, maxRange);
+        final var maxMultiplicationFirstOperand = 10;
+        var maxRange = operation.equals("*") && firstOperand >= maxMultiplicationFirstOperand
+                ? maxRangeMultiplication
+                : maxRangeBasic;
+        var secondOperand = Util.getRandomNumber(minRange, maxRange);
 
         var question = firstOperand + " " + operation + " " + secondOperand;
         this.setCurrentQuestion(question);
@@ -54,8 +57,10 @@ public class Calc implements Game {
         var question = this.getCurrentQuestion();
         var firstSpaceIndex = question.indexOf(' ');
 
-        var firstOperand = Integer.parseInt(question.substring(0, firstSpaceIndex), 10);
-        var secondOperand = Integer.parseInt(question.substring(firstSpaceIndex + 3), 10);
+        final var radix = 10;
+        final var secondOperandDiff = 3;
+        var firstOperand = Integer.parseInt(question.substring(0, firstSpaceIndex), radix);
+        var secondOperand = Integer.parseInt(question.substring(firstSpaceIndex + secondOperandDiff), radix);
         var operation = question.substring(firstSpaceIndex + 1, firstSpaceIndex + 2);
         int correctAnswer = firstOperand;
 
@@ -69,6 +74,7 @@ public class Calc implements Game {
             case "*":
                 correctAnswer *= secondOperand;
                 break;
+            default:
         }
 
         return Integer.toString(correctAnswer);

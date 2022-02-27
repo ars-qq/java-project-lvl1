@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Game;
 import hexlet.code.Util;
 
-public class Gcd implements Game {
+public final class Gcd implements Game {
     private String currentQuestion;
     private String currentCorrectAnswer;
 
@@ -30,11 +30,11 @@ public class Gcd implements Game {
     }
 
     public void generateQuestion() {
-        final var MIN_RANGE = 0;
-        final var MAX_RANGE = 100;
+        final var minRange = 0;
+        final var maxRange = 100;
 
-        var firstOperand = Util.getRandomNumber(MIN_RANGE, MAX_RANGE);
-        var secondOperand = Util.getRandomNumber(MIN_RANGE, MAX_RANGE);
+        var firstOperand = Util.getRandomNumber(minRange, maxRange);
+        var secondOperand = Util.getRandomNumber(minRange, maxRange);
 
         var question = firstOperand + " " + secondOperand;
         this.setCurrentQuestion(question);
